@@ -1,5 +1,6 @@
 import './App.css';
 import BlogPage from './components/BlogPage';
+import { ThemeProvider } from './context/ThemeProvider';
 
 import UserInfoContext from './context/UserInfoContext';
 function App() {
@@ -10,7 +11,11 @@ function App() {
   return (
     <>
       <UserInfoContext.Provider value={userInfo}>
-        <BlogPage />
+
+        <ThemeProvider>
+          <BlogPage />
+        </ThemeProvider>
+
       </UserInfoContext.Provider>
     </>
   );
