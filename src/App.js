@@ -1,23 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import { use } from 'react';
 
 function App() {
+  const userInfo = { username: "Erica", isAdmin: true };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BlogPage userInfo={userInfo} />
+  );
+}
+
+function BlogPage({ userInfo }) {
+  return (
+    <Post userInfo={userInfo} />
+  );
+}
+
+function Post({ userInfo }) {
+  return (
+    <div>
+      <h2>My Blog Post Title </h2>
+      <p>This is an example blog post.</p>
+      <Comments userInfo={userInfo} />
+    </div>
+  );
+}
+
+function Comments({ userInfo }) {
+  return (
+    <div>
+      {
+        userInfo.isAdmin && <button>Edit Comment</button>
+      }
+      <p>Comments section... </p>
+
     </div>
   );
 }
