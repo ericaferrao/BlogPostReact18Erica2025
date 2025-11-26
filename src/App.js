@@ -1,30 +1,19 @@
 import './App.css';
+import BlogPage from './components/BlogPage';
 
-import { useContext } from 'react';
-
-import MessageContext from './context/MessageContext';
-
+import UserInfoContext from './context/UserInfoContext';
 function App() {
-  const message = "hellow world";
+  const userInfo = {
+    username: "Admin",
+    isAdmin: true
+  };
   return (
     <>
-      <MessageContext.Provider value={message}>
-        <ComponentA />
-
-      </MessageContext.Provider>
+      <UserInfoContext.Provider value={userInfo}>
+        <BlogPage />
+      </UserInfoContext.Provider>
     </>
   );
 }
-
-function ComponentA() {
-  return (
-    <> <ComponentB /></>)
-};
-
-function ComponentB() {
-  const message = useContext(MessageContext)
-  return (
-    <> <p>Message:{message}</p> </>)
-};
 
 export default App;
