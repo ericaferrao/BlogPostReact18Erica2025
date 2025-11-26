@@ -1,40 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-import { use } from 'react';
+
+import { useContext } from 'react';
+
+import MessageContext from './context/MessageContext';
 
 function App() {
-  const userInfo = { username: "Erica", isAdmin: true };
+  const message = "hellow world";
   return (
-    <BlogPage userInfo={userInfo} />
+    <>
+      <MessageContext.Provider value={message}>
+        <ComponentA />
+
+      </MessageContext.Provider>
+    </>
   );
 }
 
-function BlogPage({ userInfo }) {
+function ComponentA() {
   return (
-    <Post userInfo={userInfo} />
-  );
-}
+    <> <ComponentB /></>)
+};
 
-function Post({ userInfo }) {
+function ComponentB() {
+  const message = useContext(MessageContext)
   return (
-    <div>
-      <h2>My Blog Post Title </h2>
-      <p>This is an example blog post.</p>
-      <Comments userInfo={userInfo} />
-    </div>
-  );
-}
-
-function Comments({ userInfo }) {
-  return (
-    <div>
-      {
-        userInfo.isAdmin && <button>Edit Comment</button>
-      }
-      <p>Comments section... </p>
-
-    </div>
-  );
-}
+    <> <p>Message:{message}</p> </>)
+};
 
 export default App;
