@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+## BlogPost React 18 (Erica 2025)
+
+BlogPost React 18 (Erica 2025) is a lightweight, client-side blog demo for creating, editing, and reading posts entirely in the browser. It uses React 18 hooks and a small Context layer to manage theme and user state (see `src/context/ThemeContext.js` and `src/context/UserInfoContext.js`) and a component-based structure (`src/components/BlogPage.js`, `src/components/Post.js`, `src/components/Comment.js`). Key features include creating posts with title/body/tags, inline editing, deleting posts, simple comments, theme toggling, optional `localStorage` persistence, and responsive styling for mobile and desktop. Tech stack: React 18, JavaScript (ES6+), React Hooks (`useState`, `useEffect`, `useContext`), HTML5 & CSS3.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
